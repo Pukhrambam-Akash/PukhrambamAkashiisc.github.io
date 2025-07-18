@@ -150,6 +150,39 @@
         </div>
     </footer>
 
+    <script>
+    const themeToggle = document.getElementById('theme-toggle');
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    // Function to set the theme based on localStorage
+    function applyTheme() {
+        const currentTheme = localStorage.getItem('theme');
+        // Default to dark mode if no theme is saved or if it's 'dark'
+        if (currentTheme === 'light') {
+            document.documentElement.classList.remove('dark');
+        } else {
+            document.documentElement.classList.add('dark');
+        }
+    }
+
+    // Apply the theme when the page loads
+    applyTheme();
+
+    // Listener for the theme toggle button
+    themeToggle.addEventListener('click', () => {
+        document.documentElement.classList.toggle('dark');
+        // Save the new theme preference to localStorage
+        const theme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+        localStorage.setItem('theme', theme);
+    });
+
+    // Listener for the mobile menu button
+    mobileMenuButton.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+    });
+</script>
+
 </body>
 </html>
 
