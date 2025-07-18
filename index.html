@@ -1,3 +1,14 @@
+Of course. The issue with your profile viewer is that the hit counter badge has static colors that don't adapt when you switch between light and dark modes. To fix this, we can create two versions of the badge—one for each theme—and use CSS to display the appropriate one.
+
+I've also corrected a minor typo in your "Work Experiences" heading.
+
+-----
+
+### Corrected HTML Code
+
+Here is the full modified `index.html` file. You can replace the entire content of your file with the code below. The key changes are in the profile picture and social links section.
+
+```html
 <!DOCTYPE html>
 <html lang="en" class="dark"> <head>
     <meta charset="UTF-8">
@@ -94,7 +105,7 @@
                         <li>M.Tech in Artificial Intelligence, IISc Bangalore (2024-2026)</li>
                         <li>B.Tech, NIT Manipur (2019-2023)</li>
                     </ul>
-                    <h2 class="stext-xl font-bold text-light-heading dark:text-dark-heading">Work Experiences</h2>
+                    <h2 class="text-xl font-bold text-light-heading dark:text-dark-heading">Work Experiences</h2>
                     <ul class="list-disc list-inside space-y-4">
                         <li>Senior Engineer, Samsung Display Noida (2023-2024)</li>
                         <li>Power Grid Corporation of India Limited (Imphal, 2022)</li>
@@ -115,8 +126,11 @@
                         <a href="https://scholar.google.com/citations?user=CwSGDyQAAAAJ&hl=en&authuser=2&oi=ao" target="_blank" class="icon-link text-2xl" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
                     </div>
                     <div class="mt-6">
-                        <a href="https://hits.seeyoufarm.com">
-                            <img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fp-akash-iisc.github.io%2F&count_bg=%238B5CF6&title_bg=%231E1E1E&icon=&title=Profile+Views&edge_flat=false"/>
+                        <a href="https://hits.seeyoufarm.com" class="inline dark:hidden">
+                            <img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fp-akash-iisc.github.io%2F&count_bg=%238B5CF6&title_bg=%23F3F4F6&icon=&title=Profile+Views&edge_flat=false"/>
+                        </a>
+                        <a href="https://hits.seeyoufarm.com" class="hidden dark:inline">
+                             <img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fp-akash-iisc.github.io%2F&count_bg=%23BB86FC&title_bg=%231E1E1E&icon=&title=Profile+Views&edge_flat=false"/>
                         </a>
                     </div>
                 </div>
@@ -163,3 +177,4 @@
 
 </body>
 </html>
+```
