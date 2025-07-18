@@ -32,19 +32,42 @@
 </head>
 <body class="bg-dark-bg text-dark-text">
 
-    <!-- Header & Navigation -->
-    <header class="sticky top-0 z-50 bg-dark-card/80 backdrop-blur-sm shadow-md">
+    <!-- Header & Navigation -->  
+    <header class="sticky top-0 z-50 bg-light-card/80 dark:bg-dark-card/80 backdrop-blur-sm shadow-md">
         <nav class="container mx-auto px-6 py-4">
             <div class="flex items-center justify-between">
-                <a href="index.html" class="text-lg font-bold text-dark-heading">Pukhrambam Akash Singh</a>
-                <div class="hidden md:flex items-center space-x-6">
-                    <a href="projects.html" class="link-style">Projects</a>
-                    <a href="achievements.html" class="link-style">Achievements</a>
-                    <a href="cv.html" class="link-style">CV</a>
-                    <a href="https://github.com/Pukhrambam-Akash" target="_blank" class="link-style">GitHub Repo</a>
+                <a href="index.html" class="text-lg font-bold text-light-heading dark:text-dark-heading">Pukhrambam Akash Singh</a>
+                
+                <!-- Right-aligned container for nav links and buttons -->
+                <div class="flex items-center space-x-4">
+                    <div class="hidden md:flex items-center space-x-6">
+                        <a href="index.html" class="text-light-link dark:text-dark-link hover:text-light-accent dark:hover:text-dark-accent">Bio</a>
+                        <a href="projects.html" class="text-light-link dark:text-dark-link hover:text-light-accent dark:hover:text-dark-accent">Projects</a>
+                        <a href="achievements.html" class="text-light-link dark:text-dark-link hover:text-light-accent dark:hover:text-dark-accent">Achievements</a>
+                        <a href="cv.html" class="text-light-link dark:text-dark-link hover:text-light-accent dark:hover:text-dark-accent">CV</a>
+                        <a href="misc.html" class="text-light-link dark:text-dark-link hover:text-light-accent dark:hover:text-dark-accent">Misc</a>
+                    </div>
+                    
+                    <!-- Theme Toggle Button -->
+                    <button id="theme-toggle" class="text-light-heading dark:text-dark-heading text-xl">
+                        <i class="fas fa-sun hidden dark:inline"></i>
+                        <i class="fas fa-moon inline dark:hidden"></i>
+                    </button>
+                    <!-- Mobile Menu Button -->
+                    <button id="mobile-menu-button" class="md:hidden text-light-heading dark:text-dark-heading text-xl">
+                        <i class="fas fa-bars"></i>
+                    </button>
                 </div>
             </div>
         </nav>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-light-card dark:bg-dark-card">
+            <a href="index.html" class="block py-2 px-6 text-light-link dark:text-dark-link">Bio</a>
+            <a href="projects.html" class="block py-2 px-6 text-light-link dark:text-dark-link">Projects</a>
+            <a href="achievements.html" class="block py-2 px-6 text-light-link dark:text-dark-link">Achievements</a>
+            <a href="cv.html" class="block py-2 px-6 text-light-link dark:text-dark-link">CV</a>
+            <a href="misc.html" class="block py-2 px-6 text-light-link dark:text-dark-link">Misc</a>
+        </div>
     </header>
 
     <!-- Main Content -->
