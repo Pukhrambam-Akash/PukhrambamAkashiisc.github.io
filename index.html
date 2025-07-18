@@ -136,29 +136,26 @@
     const mobileMenuButton = document.getElementById('mobile-menu-button');
     const mobileMenu = document.getElementById('mobile-menu');
 
-    // Function to set the theme based on localStorage
-    function applyTheme() {
-        const currentTheme = localStorage.getItem('theme');
+    // Check for a saved theme in localStorage and apply it
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'light') {
+        document.documentElement.classList.remove('dark');
+    } else {
         // Default to dark mode if no theme is saved or if it's 'dark'
-        if (currentTheme === 'light') {
-            document.documentElement.classList.remove('dark');
-        } else {
-            document.documentElement.classList.add('dark');
-        }
+        document.documentElement.classList.add('dark');
     }
 
-    // Apply the theme when the page loads
-    applyTheme();
-
-    // Listener for the theme toggle button
+    // Add a listener to the theme toggle button
     themeToggle.addEventListener('click', () => {
+        // Toggle the .dark class on the main <html> element
         document.documentElement.classList.toggle('dark');
-        // Save the new theme preference to localStorage
-        const theme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
-        localStorage.setItem('theme', theme);
+
+        // Check what the new theme is and save it in localStorage
+        const currentTheme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+        localStorage.setItem('theme', currentTheme);
     });
 
-    // Listener for the mobile menu button
+    // Add a listener to the mobile menu button
     mobileMenuButton.addEventListener('click', () => {
         mobileMenu.classList.toggle('hidden');
     });
