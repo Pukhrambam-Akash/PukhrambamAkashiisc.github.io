@@ -94,7 +94,6 @@
                         <li>M.Tech in Artificial Intelligence, IISc Bangalore (2024-2026)</li>
                         <li>B.Tech, NIT Manipur (2019-2023)</li>
                     </ul>
-                    <!-- Work Experience Section Updated -->
                     <h2 class="text-2xl font-bold text-light-heading dark:text-dark-heading mb-3">Work Experiences</h2>
                     <ol class="list-decimal list-inside space-y-4">
                         <li>Senior Engineer, Samsung Display Noida (2023-2024)</li>
@@ -116,10 +115,9 @@
                         <a href="https://www.linkedin.com/in/er-apu/" target="_blank" class="icon-link text-2xl" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
                         <a href="https://scholar.google.com/citations?user=CwSGDyQAAAAJ&hl=en&authuser=2&oi=ao" target="_blank" class="icon-link text-2xl" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
                     </div>
-                    <div class="mt-6 bg-light-card dark:bg-dark-card py-2 px-4 rounded-lg inline-block shadow">
-                        <p class="text-sm font-medium text-light-heading dark:text-dark-heading">
-                            Profile Views: <span id="visitor-count" class="font-bold text-light-accent dark:text-dark-accent">Loading...</span>
-                        </p>
+                    <!-- Visitor Counter Updated to reliable image-based service -->
+                    <div class="mt-6">
+                        <img src="https://komarev.com/ghpvc/?username=Pukhrambam-Akash&repo=PukhrambamAkashiisc.github.io&color=blueviolet&style=flat-square&label=Profile+Views" alt="Profile Views"/>
                     </div>
                 </div>
             </div>
@@ -143,50 +141,5 @@
         mobileMenuButton.addEventListener('click', () => { mobileMenu.classList.toggle('hidden'); });
     </script>
     
-    <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
-        import { getAuth, signInAnonymously, signInWithCustomToken } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
-        import { getFirestore, doc, onSnapshot, runTransaction } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
-
-        const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : {};
-        const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
-        const initialAuthToken = typeof __initial_auth_token !== 'undefined' ? __initial_auth_token : null;
-        
-        try {
-            const app = initializeApp(firebaseConfig);
-            const db = getFirestore(app);
-            const auth = getAuth(app);
-
-            if (initialAuthToken) { await signInWithCustomToken(auth, initialAuthToken); } else { await signInAnonymously(auth); }
-
-            const visitorCountElement = document.getElementById('visitor-count');
-            const pageId = 'index_page';
-            const counterDocRef = doc(db, `/artifacts/${appId}/public/data/visitor_counts/${pageId}`);
-
-            await runTransaction(db, async (transaction) => {
-                const counterDoc = await transaction.get(counterDocRef);
-                if (!counterDoc.exists()) {
-                    transaction.set(counterDocRef, { count: 1 });
-                } else {
-                    transaction.update(counterDocRef, { count: counterDoc.data().count + 1 });
-                }
-            });
-
-            onSnapshot(counterDocRef, (doc) => {
-                if (doc.exists()) {
-                    visitorCountElement.textContent = doc.data().count.toLocaleString();
-                } else {
-                    visitorCountElement.textContent = '1';
-                }
-            });
-
-        } catch (error)
-{
-            console.error("Firebase error:", error);
-            const visitorCountElement = document.getElementById('visitor-count');
-            if(visitorCountElement) visitorCountElement.textContent = 'N/A';
-        }
-    </script>
-
 </body>
 </html>
