@@ -47,7 +47,6 @@
             <div class="flex items-center justify-between">
                 <a href="index.html" class="text-lg font-bold text-light-heading dark:text-dark-heading">Pukhrambam Akash Singh</a>
                 
-                <!-- Right-aligned container for nav links and buttons -->
                 <div class="flex items-center space-x-4">
                     <div class="hidden md:flex items-center space-x-6">
                         <a href="index.html" class="text-light-link dark:text-dark-link hover:text-light-accent dark:hover:text-dark-accent">Bio</a>
@@ -57,19 +56,11 @@
                         <a href="misc.html" class="text-light-link dark:text-dark-link hover:text-light-accent dark:hover:text-dark-accent">Misc</a>
                     </div>
                     
-                    <!-- Theme Toggle Button -->
-                    <button id="theme-toggle" class="text-light-heading dark:text-dark-heading text-xl">
-                        <i class="fas fa-sun hidden dark:inline"></i>
-                        <i class="fas fa-moon inline dark:hidden"></i>
-                    </button>
-                    <!-- Mobile Menu Button -->
-                    <button id="mobile-menu-button" class="md:hidden text-light-heading dark:text-dark-heading text-xl">
-                        <i class="fas fa-bars"></i>
-                    </button>
+                    <button id="theme-toggle" class="text-light-heading dark:text-dark-heading text-xl"><i class="fas fa-sun hidden dark:inline"></i><i class="fas fa-moon inline dark:hidden"></i></button>
+                    <button id="mobile-menu-button" class="md:hidden text-light-heading dark:text-dark-heading text-xl"><i class="fas fa-bars"></i></button>
                 </div>
             </div>
         </nav>
-        <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden md:hidden bg-light-card dark:bg-dark-card">
             <a href="index.html" class="block py-2 px-6 text-light-link dark:text-dark-link">Bio</a>
             <a href="projects.html" class="block py-2 px-6 text-light-link dark:text-dark-link">Projects</a>
@@ -82,7 +73,6 @@
     <!-- Main Content -->
     <main class="container mx-auto px-6">
         <section id="about" class="min-h-screen flex items-center py-16">
-            <!-- Grid container with reordering for mobile -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-12 items-center">
                 <!-- Left Column: Details (shows second on mobile) -->
                 <div class="md:col-span-2 order-2 md:order-1">
@@ -104,14 +94,19 @@
                         <li>M.Tech in Artificial Intelligence, IISc Bangalore (2024-2026)</li>
                         <li>B.Tech, NIT Manipur (2019-2023)</li>
                     </ul>
+                    <!-- Work Experience Section Updated -->
+                    <h2 class="text-2xl font-bold text-light-heading dark:text-dark-heading mb-3">Work Experiences</h2>
+                    <ol class="list-decimal list-inside space-y-4">
+                        <li>Senior Engineer, Samsung Display Noida (2023-2024)</li>
+                        <li>Power Grid Corporation of India Limited (Imphal, 2022)</li>
+                        <li>NHPC Limited, Leimatak Power Station (2021)</li>
+                    </ol>
                 </div>
                 <!-- Right Column: Photo and Links (shows first on mobile) -->
                 <div class="text-center order-1 md:order-2">
                     <img src="daakash.jpg" alt="Pukhrambam Akash Singh" class="rounded-full w-60 h-60 md:w-72 md:h-72 object-cover mx-auto mb-6 border-4 border-light-accent dark:border-dark-accent shadow-lg">
-                    <!-- Name size reduced -->
                     <h3 class="text-xl font-bold text-light-heading dark:text-dark-heading">Pukhrambam Akash Singh</h3>
-                    <!-- Focas Lab and Address Added -->
-                   <div class="mt-2 text-sm">
+                    <div class="mt-2 text-sm">
                         <a href="https://www.focaslab.com/" target="_blank" class="text-light-link dark:text-dark-link hover:underline">FOCAS LAB</a>
                         <div class="text-gray-500 dark:text-gray-400">IISc Bengaluru, 560012</div>
                         <a href="mailto:elearning.apu@gmail.com" class="text-light-link dark:text-dark-link">elearning.apu@gmail.com</a>
@@ -121,13 +116,16 @@
                         <a href="https://www.linkedin.com/in/er-apu/" target="_blank" class="icon-link text-2xl" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
                         <a href="https://scholar.google.com/citations?user=CwSGDyQAAAAJ&hl=en&authuser=2&oi=ao" target="_blank" class="icon-link text-2xl" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
                     </div>
-                     
+                    <div class="mt-6 bg-light-card dark:bg-dark-card py-2 px-4 rounded-lg inline-block shadow">
+                        <p class="text-sm font-medium text-light-heading dark:text-dark-heading">
+                            Profile Views: <span id="visitor-count" class="font-bold text-light-accent dark:text-dark-accent">Loading...</span>
+                        </p>
+                    </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- Footer Section -->
     <footer class="bg-light-card dark:bg-dark-card mt-16 border-t border-gray-200 dark:border-gray-700">
         <div class="container mx-auto px-6 py-8 text-center text-gray-500 dark:text-gray-400">
             <p class="text-lg italic font-bold text-light-heading dark:text-dark-heading">"Failure is certain. Triumph is a chance. Your effort is the bridge."</p>
@@ -143,6 +141,51 @@
         if (currentTheme === 'light') { document.documentElement.classList.remove('dark'); } else { document.documentElement.classList.add('dark'); }
         themeToggle.addEventListener('click', () => { document.documentElement.classList.toggle('dark'); const theme = document.documentElement.classList.contains('dark') ? 'dark' : 'light'; localStorage.setItem('theme', theme); });
         mobileMenuButton.addEventListener('click', () => { mobileMenu.classList.toggle('hidden'); });
+    </script>
+    
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getAuth, signInAnonymously, signInWithCustomToken } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getFirestore, doc, onSnapshot, runTransaction } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+
+        const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : {};
+        const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
+        const initialAuthToken = typeof __initial_auth_token !== 'undefined' ? __initial_auth_token : null;
+        
+        try {
+            const app = initializeApp(firebaseConfig);
+            const db = getFirestore(app);
+            const auth = getAuth(app);
+
+            if (initialAuthToken) { await signInWithCustomToken(auth, initialAuthToken); } else { await signInAnonymously(auth); }
+
+            const visitorCountElement = document.getElementById('visitor-count');
+            const pageId = 'index_page';
+            const counterDocRef = doc(db, `/artifacts/${appId}/public/data/visitor_counts/${pageId}`);
+
+            await runTransaction(db, async (transaction) => {
+                const counterDoc = await transaction.get(counterDocRef);
+                if (!counterDoc.exists()) {
+                    transaction.set(counterDocRef, { count: 1 });
+                } else {
+                    transaction.update(counterDocRef, { count: counterDoc.data().count + 1 });
+                }
+            });
+
+            onSnapshot(counterDocRef, (doc) => {
+                if (doc.exists()) {
+                    visitorCountElement.textContent = doc.data().count.toLocaleString();
+                } else {
+                    visitorCountElement.textContent = '1';
+                }
+            });
+
+        } catch (error)
+{
+            console.error("Firebase error:", error);
+            const visitorCountElement = document.getElementById('visitor-count');
+            if(visitorCountElement) visitorCountElement.textContent = 'N/A';
+        }
     </script>
 
 </body>
