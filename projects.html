@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - Pukhrambam Akash Singh</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'dark-bg': '#121212',
+                        'dark-card': '#1e1e1e',
+                        'dark-text': '#e0e0e0',
+                        'dark-heading': '#ffffff',
+                        'dark-accent': '#bb86fc',
+                        'dark-link': '#37bcf9',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .link-style { color: #37bcf9; text-decoration: none; transition: color 0.3s; }
+        .link-style:hover { color: #bb86fc; text-decoration: underline; }
+        .project-item { background-color: #1e1e1e; padding: 1.5rem; border-radius: 0.5rem 0.5rem 0 0; border-left: 4px solid #bb86fc; }
+        .project-title { color: #ffffff; font-weight: 700; font-size: 1.25rem; }
+        .project-date { color: #bb86fc; font-size: 0.9rem; font-weight: 500; }
+        .slide-container { background-color: #1e1e1e; padding: 1rem; border-radius: 0 0 0.5rem 0.5rem; margin-top: -1px; }
+    </style>
+</head>
+<body class="bg-dark-bg text-dark-text">
+
+    <!-- Header & Navigation -->
+    <header class="sticky top-0 z-50 bg-dark-card/80 backdrop-blur-sm shadow-md">
+        <nav class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <a href="index.html" class="text-lg font-bold text-dark-heading">Pukhrambam Akash Singh</a>
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="projects.html" class="link-style">Projects</a>
+                    <a href="achievements.html" class="link-style">Achievements</a>
+                    <a href="https://github.com/Pukhrambam-Akash" target="_blank" class="link-style">GitHub Repo</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-6 py-12">
+        <section id="projects" class="py-10">
+            <h1 class="text-4xl font-bold text-center mb-12 text-dark-heading">Projects</h1>
+            <div class="max-w-4xl mx-auto space-y-8">
+                <div>
+                    <div class="project-item">
+                        <div class="flex justify-between items-start mb-2">
+                            <div><h3 class="project-title">1. nCBF: Self supervised Neural Control Barrier Function for STL Task</h3><p class="text-dark-text mt-2">Developing a State-of-the-Art nCBF for formally guaranteed Autonomous Systems.</p></div>
+                            <span class="project-date">Ongoing</span>
+                        </div>
+                        <div class="mt-4 flex justify-end space-x-4"><a href="#" class="link-style font-semibold">Paper</a><a href="#" class="link-style font-semibold">Code</a></div>
+                    </div>
+                </div>
+                <div>
+                    <div class="project-item">
+                        <div class="flex justify-between items-start mb-2">
+                            <div><h3 class="project-title">2. DeepSkip: Sponsored Segmentation in Youtube Videos</h3><p class="text-dark-text mt-2">Developing an edge device-deployable solution to counter Google's server-side ad injection.</p><p class="text-sm text-gray-400 mt-2"><span class="font-semibold">Tools:</span> Multimodal Parallelizable Transformer</p></div>
+                            <span class="project-date">Ongoing</span>
+                        </div>
+                        <div class="mt-4 flex justify-end space-x-4"><a href="#" class="link-style font-semibold">Paper</a><a href="#" class="link-style font-semibold">Code</a></div>
+                    </div>
+                </div>
+                <div>
+                    <div class="project-item">
+                        <div class="flex justify-between items-start mb-2">
+                            <div><h3 class="project-title">3. Twitter Sentiment analysis on Sentiment140 Dataset</h3><p class="text-dark-text mt-2">Leveraged NLP techniques and Machine Learning Algorithms for classifying sentiments in large textual datasets.</p><p class="text-sm text-gray-400 mt-2"><span class="font-semibold">Tools:</span> PCA, SVM, Stochastic Gradient Descent, Logistic Regression, TF-IDF</p></div>
+                            <span class="project-date">2023</span>
+                        </div>
+                         <div class="mt-4 flex justify-end space-x-4"><a href="#" class="link-style font-semibold">Paper</a><a href="#" class="link-style font-semibold">Code</a></div>
+                    </div>
+                </div>
+                <div>
+                    <div class="project-item">
+                        <div class="flex justify-between items-start mb-2">
+                            <div><h3 class="project-title">4. Self Driving Car: Nvidia Paper Implementation</h3><p class="text-dark-text mt-2">Developed a regression-based simplified model for autonomous driving.</p><p class="text-sm text-gray-400 mt-2"><span class="font-semibold">Tools:</span> CNN, L2 Regularization, Tensorflow, EDA, Python</p></div>
+                            <span class="project-date">2021</span>
+                        </div>
+                         <div class="mt-4 flex justify-end space-x-4"><a href="#" class="link-style font-semibold">Paper</a><a href="#" class="link-style font-semibold">Code</a></div>
+                    </div>
+                </div>
+                <div>
+                    <div class="project-item">
+                        <div class="flex justify-between items-start mb-2">
+                            <div><h3 class="project-title">5. Real-Time Object Detection on Edge Devices</h3><p class="text-dark-text mt-2">Optimized and deployed a YOLOv8 model on a Jetson Nano for real-time object detection in a video stream.</p><p class="text-sm text-gray-400 mt-2"><span class="font-semibold">Tools:</span> PyTorch, TensorRT, ONNX, Jetson Nano</p></div>
+                            <span class="project-date">In Progress</span>
+                        </div>
+                         <div class="mt-4 flex justify-end space-x-4"><a href="#" class="link-style font-semibold">Paper</a><a href="#" class="link-style font-semibold">Code</a></div>
+                    </div>
+                    <div class="slide-container">
+                        <div class="aspect-video"><iframe src="https://docs.google.com/presentation/d/1NMjDi7wTsuxz1uvW8rqskl45nEgvH4cs8ZzgaQCsFUQ/embed?start=false&loop=false&delayms=3000" frameborder="0" allowfullscreen="true" class="w-full h-full rounded-md"></iframe></div>
+                    </div>
+                </div>
+                <div>
+                    <div class="project-item">
+                        <div class="flex justify-between items-start mb-2">
+                            <div><h3 class="project-title">6. Scratch Implementations</h3><ul class="list-disc list-inside text-dark-text mt-2 space-y-1"><li>Back Propagation in Deep Neural Network (DNN) with one hidden Layer.</li><li>PCA and LDA for emotion classification.</li></ul></div>
+                        </div>
+                         <div class="mt-4 flex justify-end space-x-4"><a href="#" class="link-style font-semibold">Paper</a><a href="#" class="link-style font-semibold">Code</a></div>
+                    </div>
+                    <div class="slide-container">
+                        <div class="aspect-video"><iframe src="https://docs.google.com/presentation/d/e/YOUR_EMBED_ID_HERE_6/embed?start=false&loop=false&delayms=3000" frameborder="0" allowfullscreen="true" class="w-full h-full rounded-md"></iframe></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="bg-dark-card mt-16 border-t border-gray-700">
+        <div class="container mx-auto px-6 py-8 text-center text-gray-400">
+            <p class="text-lg italic font-bold text-dark-heading">"Failure is certain. Triumph is a chance. Your effort is the bridge."</p>
+            <p class="mt-6 text-sm">&copy; 2025 Pukhrambam Akash Singh. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
