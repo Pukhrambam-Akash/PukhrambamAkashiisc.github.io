@@ -125,11 +125,14 @@ Namaskara, I am currently pursuing my M.Tech in Artificial Intelligence at the p
 </section>
 </main>
 
-<footer class="bg-light-card dark:bg-dark-card mt-16 border-t border-gray-200 dark:border-gray-700">
-<div class="container mx-auto px-6 py-8 text-center text-gray-500 dark:text-gray-400">
-<p class="text-lg italic font-bold text-light-heading dark:text-dark-heading">"Failure is certain. Triumph is a chance. Your effort is the bridge."</p>
-<p class="mt-6 text-sm">&copy; 2025 Pukhrambam Akash Singh. All Rights Reserved.</p>
-</div>
+<footer class="bg-light-card mt-16 border-t border-gray-200">
+    <div class="container mx-auto px-6 py-8 text-center text-gray-500">
+        <p class="text-lg italic font-bold text-light-heading">"Failure is certain. Triumph is a chance. Your effort is the bridge."</p>
+
+        <p class="mt-4 text-sm" id="last-updated"></p> 
+
+        <p class="mt-2 text-sm">&copy; 2025 Pukhrambam Akash Singh. All Rights Reserved.</p>
+    </div>
 </footer>
 
 <script>
@@ -161,6 +164,18 @@ mobileMenuButton.addEventListener('click', () => {
 mobileMenu.classList.toggle('hidden');
 });
 </script>
+
+  <script>
+        // This script automatically displays the last modified date of the document.
+        const lastUpdatedElement = document.getElementById('last-updated');
+        if (lastUpdatedElement) {
+            const lastModified = new Date(document.lastModified);
+            const options = { year: 'numeric', month: 'long', day: 'numeric' };
+            // Using 'en-IN' for an appropriate Indian English date format.
+            const formattedDate = lastModified.toLocaleDateString('en-IN', options);
+            lastUpdatedElement.innerHTML = `Last Updated on ${formattedDate}`;
+        }
+    </script>
 
 </body>
 </html>
