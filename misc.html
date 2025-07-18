@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Misc - Pukhrambam Akash Singh</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'dark-bg': '#121212',
+                        'dark-card': '#1e1e1e',
+                        'dark-text': '#e0e0e0',
+                        'dark-heading': '#ffffff',
+                        'dark-accent': '#bb86fc',
+                        'dark-link': '#37bcf9',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .link-style { color: #37bcf9; text-decoration: none; transition: color 0.3s; }
+        .link-style:hover { color: #bb86fc; text-decoration: underline; }
+        .section-container { padding-top: 4rem; padding-bottom: 4rem; }
+        .section-title { font-size: 1.875rem; font-weight: 700; color: #ffffff; border-bottom: 2px solid #bb86fc; padding-bottom: 0.5rem; margin-bottom: 2rem; }
+        .gallery-item { transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; }
+        .gallery-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+        }
+    </style>
+</head>
+<body class="bg-dark-bg text-dark-text">
+
+    <!-- Header & Navigation -->
+    <header class="sticky top-0 z-50 bg-dark-card/80 backdrop-blur-sm shadow-md">
+        <nav class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <a href="index.html" class="text-lg font-bold text-dark-heading">Pukhrambam Akash Singh</a>
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="index.html" class="link-style">Bio</a>
+                    <a href="projects.html" class="link-style">Projects</a>
+                    <a href="achievements.html" class="link-style">Achievements</a>
+                    <a href="cv.html" class="link-style">CV</a>
+                    <a href="misc.html" class="link-style">Misc</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-6 py-12">
+        <h1 class="text-4xl font-bold text-center mb-12 text-dark-heading">Miscellaneous</h1>
+
+        <!-- Featured Video Section -->
+        <section class="section-container">
+            <h2 class="section-title">Featured Video</h2>
+            <div class="max-w-3xl mx-auto bg-dark-card rounded-lg shadow-lg p-4">
+                <div class="aspect-video">
+                    <!-- Updated YouTube video embed -->
+                    <iframe class="w-full h-full rounded-md" src="https://www.youtube.com/embed/RNnZwvklwa8" title="POWER | AI Motivational Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </div>
+        </section>
+
+        <!-- Reading List Section -->
+        <section class="section-container">
+            <h2 class="section-title">Reading List</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+                <!-- Book 1 -->
+                <div class="bg-dark-card rounded-lg shadow-lg p-4 text-center">
+                    <img src="https://placehold.co/300x450/1e1e1e/bb86fc?text=A+Mind+\nfor+\nNumbers" alt="Book Cover: A Mind for Numbers" class="w-full h-64 object-cover rounded-md mb-4">
+                    <h3 class="font-bold text-dark-heading">A Mind for Numbers</h3>
+                    <p class="text-sm text-gray-400">Barbara Oakley</p>
+                </div>
+                <!-- Book 2 -->
+                <div class="bg-dark-card rounded-lg shadow-lg p-4 text-center">
+                    <img src="https://placehold.co/300x450/1e1e1e/37bcf9?text=Atomic+\nHabits" alt="Book Cover: Atomic Habits" class="w-full h-64 object-cover rounded-md mb-4">
+                    <h3 class="font-bold text-dark-heading">Atomic Habits</h3>
+                    <p class="text-sm text-gray-400">James Clear</p>
+                </div>
+                <!-- Book 3 -->
+                <div class="bg-dark-card rounded-lg shadow-lg p-4 text-center">
+                    <img src="https://placehold.co/300x450/1e1e1e/e0e0e0?text=Thinking,+\nFast+\nand+Slow" alt="Book Cover: Thinking, Fast and Slow" class="w-full h-64 object-cover rounded-md mb-4">
+                    <h3 class="font-bold text-dark-heading">Thinking, Fast and Slow</h3>
+                    <p class="text-sm text-gray-400">Daniel Kahneman</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section class="section-container">
+            <h2 class="section-title">Gallery</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="gallery-item rounded-lg overflow-hidden">
+                    <img src="https://placehold.co/400x400/121212/ffffff?text=Nature" alt="Gallery image placeholder" class="w-full h-full object-cover">
+                </div>
+                <div class="gallery-item rounded-lg overflow-hidden">
+                    <img src="https://placehold.co/400x400/bb86fc/121212?text=Tech" alt="Gallery image placeholder" class="w-full h-full object-cover">
+                </div>
+                <div class="gallery-item rounded-lg overflow-hidden">
+                    <img src="https://placehold.co/400x400/37bcf9/121212?text=Travel" alt="Gallery image placeholder" class="w-full h-full object-cover">
+                </div>
+                <div class="gallery-item rounded-lg overflow-hidden">
+                    <img src="https://placehold.co/400x400/e0e0e0/121212?text=Abstract" alt="Gallery image placeholder" class="w-full h-full object-cover">
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="bg-dark-card mt-16 border-t border-gray-700">
+        <div class="container mx-auto px-6 py-8 text-center text-gray-400">
+            <p class="text-lg italic font-bold text-dark-heading">"Failure is certain. Triumph is a chance. Your effort is the bridge."</p>
+            <p class="mt-6 text-sm">&copy; 2025 Pukhrambam Akash Singh. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
