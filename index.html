@@ -114,12 +114,10 @@
                         <a href="https://www.linkedin.com/in/er-apu/" target="_blank" class="icon-link text-2xl" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
                         <a href="https://scholar.google.com/citations?user=CwSGDyQAAAAJ&hl=en&authuser=2&oi=ao" target="_blank" class="icon-link text-2xl" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
                     </div>
-                    <div class="mt-6">
-                        <!-- Light Mode Visitor Badge -->
-                        <img src="https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fp-akash-iisc.github.io%2F&label=Profile%20Views&labelColor=%23f3f4f6&countColor=%238b5cf6&style=flat" alt="Profile Views" class="inline dark:hidden"/>
-                        <!-- Dark Mode Visitor Badge -->
-                        <img src="https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fp-akash-iisc.github.io%2F&label=Profile%20Views&labelColor=%231e1e1e&countColor=%23bb86fc&style=flat" alt="Profile Views" class="hidden dark:inline"/>
-                    </div>
+                    <div class="mt-6 text-sm text-gray-500 dark:text-gray-400">
+                         <span><i class="fas fa-eye"></i> Profile Views: </span>
+                         <span id="visitor-count">Loading...</span>
+                     </div>
                 </div>
             </div>
         </section>
@@ -133,33 +131,35 @@
     </footer>
 
     <script>
-    const themeToggle = document.getElementById('theme-toggle');
-    const mobileMenuButton = document.getElementById('mobile-menu-button');
-    const mobileMenu = document.getElementById('mobile-menu');
+    function updateVisitorCount() {
+        const countApiUrl = 'https://api.countapi.xyz';
+        const namespace = 'p-akash-iisc.github.io'; // A unique name for your site's counters
+        const key = 'portfolio-views'; // A name for this specific counter
 
-    // Check for a saved theme in localStorage and apply it
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'light') {
-        document.documentElement.classList.remove('dark');
-    } else {
-        // Default to dark mode if no theme is saved or if it's 'dark'
-        document.documentElement.classList.add('dark');
+        const visitedFlag = 'portfolioVisited';
+
+        // Check if the user has a "visited" flag in their browser's local storage
+        if (localStorage.getItem(visitedFlag)) {
+            // It's a returning visitor, just get the count without incrementing
+            fetch(`${countApiUrl}/get/${namespace}/${key}`)
+                .then(res => res.json())
+                .then(data => {
+                    document.getElementById('visitor-count').textContent = data.value;
+                });
+        } else {
+            // It's a new visitor, increment the count ("hit")
+            fetch(`${countApiUrl}/hit/${namespace}/${key}`)
+                .then(res => res.json())
+                .then(data => {
+                    document.getElementById('visitor-count').textContent = data.value;
+                    // Set the flag in their browser so they are not counted again
+                    localStorage.setItem(visitedFlag, 'true');
+                });
+        }
     }
 
-    // Add a listener to the theme toggle button
-    themeToggle.addEventListener('click', () => {
-        // Toggle the .dark class on the main <html> element
-        document.documentElement.classList.toggle('dark');
-
-        // Check what the new theme is and save it in localStorage
-        const currentTheme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
-        localStorage.setItem('theme', currentTheme);
-    });
-
-    // Add a listener to the mobile menu button
-    mobileMenuButton.addEventListener('click', () => {
-        mobileMenu.classList.toggle('hidden');
-    });
+    // Run the function when the page loads
+    updateVisitorCount();
 </script>
 
 </body>
