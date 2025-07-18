@@ -1,2 +1,130 @@
 # Pukhrambam-Akash.github.io
-My personal academic &amp; developer portfolio website
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pukhrambam Akash Singh - Portfolio</title>
+    <!-- Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script>
+        // Custom Tailwind CSS configuration for a dark theme
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'dark-bg': '#121212',
+                        'dark-card': '#1e1e1e',
+                        'dark-text': '#e0e0e0',
+                        'dark-heading': '#ffffff',
+                        'dark-accent': '#bb86fc',
+                        'dark-link': '#37bcf9',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Use the Inter font family */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #121212; /* dark-bg */
+            color: #e0e0e0; /* dark-text */
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        .section-title {
+            color: #ffffff; /* dark-heading */
+        }
+        .link-style {
+            color: #37bcf9; /* dark-link */
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .link-style:hover {
+            color: #bb86fc; /* dark-accent */
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body class="bg-dark-bg text-dark-text">
+
+    <!-- Header & Navigation -->
+    <header class="sticky top-0 z-50 bg-dark-card/80 backdrop-blur-sm shadow-md">
+        <nav class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <!-- Font size reduced for the header name -->
+                <a href="index.html" class="text-lg font-bold text-dark-heading">Pukhrambam Akash Singh</a>
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="projects.html" class="link-style">Projects</a>
+                    <a href="achievements.html" class="link-style">Achievements</a>
+                    <a href="cv.html" class="link-style">CV</a>
+                    <a href="https://github.com/Pukhrambam-Akash" target="_blank" class="link-style">GitHub Repo</a>
+                </div>
+                <div class="md:hidden">
+                    <!-- Mobile menu button can be added here -->
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-6 py-12">
+
+        <!-- About Section (Hero) -->
+        <section id="about" class="min-h-[calc(100vh-200px)] flex items-center py-16">
+            <div class="grid md:grid-cols-3 gap-12 items-center">
+                <!-- Left Column: Text Info -->
+                <div class="md:col-span-2">
+                    <!-- Font size reduced for the main title -->
+                    <h1 class="text-3xl md:text-4xl font-bold text-dark-heading mb-4">Pukhrambam Akash Singh</h1>
+                    <p class="mb-6 text-lg">
+                        Currently pursuing my M.Tech in Artificial Intelligence at the Indian Institute of Science (IISc) Bangalore, under the guidance of <a href="https://cps.iisc.ac.in/naxly_team/pushpak-jagtap/" target="_blank" class="link-style">Pushpak Jagtap</a>. My research focuses on Autonomous Systems, Formal Methods, and Generative AI.
+                    </p>
+
+                    <h2 class="text-2xl font-bold text-dark-heading mb-3">Research Interests</h2>
+                    <ul class="list-disc list-inside space-y-1 mb-6">
+                        <li>Autonomous System & Control Theory</li>
+                        <li>Formal Methods & Reinforcement Learning</li>
+                        <li>Generative AI & Natural Language Processing</li>
+                        <li>Representation Learning & Gas-Sensors</li>
+                    </ul>
+
+                    <h2 class="text-2xl font-bold text-dark-heading mb-3">Education</h2>
+                    <ul class="list-disc list-inside space-y-1">
+                        <li>M.Tech in Artificial Intelligence, IISc Bangalore (2024-2026)</li>
+                        <li>B.Tech, NIT Manipur (2019-2023)</li>
+                    </ul>
+                </div>
+                <!-- Right Column: Image and Links -->
+                <div class="text-center">
+                    <img src="daakash.jpg" alt="Pukhrambam Akash Singh" class="rounded-full w-60 h-60 md:w-72 md:h-72 object-cover mx-auto mb-6 border-4 border-dark-accent shadow-lg">
+                    <h3 class="text-2xl font-bold text-dark-heading">Pukhrambam Akash Singh</h3>
+                    <div class="mt-4 space-x-4">
+                        <a href="https://www.linkedin.com/in/er-apu/" target="_blank" class="link-style text-lg">LinkedIn</a>
+                        <a href="https://scholar.google.com/citations?user=CwSGDyQAAAAJ&hl=en&authuser=2&oi=ao" target="_blank" class="link-style text-lg">Google Scholar</a>
+                    </div>
+                     <p class="mt-4 text-sm"><a href="mailto:pukhrambams@iisc.ac.in" class="link-style">pukhrambams@iisc.ac.in</a></p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="bg-dark-card mt-16 border-t border-gray-700">
+        <div class="container mx-auto px-6 py-8 text-center text-gray-400">
+            <p class="text-lg italic font-bold text-dark-heading">"Failure is certain. Triumph is a chance. Your effort is the bridge."</p>
+            <p class="mt-6 text-sm">&copy; 2025 Pukhrambam Akash Singh. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
