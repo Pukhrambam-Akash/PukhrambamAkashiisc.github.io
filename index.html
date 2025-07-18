@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="dark"> <!-- Default to dark mode -->
-<head>
+<html lang="en" class="dark"> <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pukhrambam Akash Singh - Portfolio</title>
@@ -8,7 +7,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
-    <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <script>
         tailwind.config = {
@@ -44,7 +42,6 @@
 </head>
 <body class="bg-light-bg text-light-text dark:bg-dark-bg dark:text-dark-text transition-colors duration-300">
 
-    <!-- Header & Navigation -->
     <header class="sticky top-0 z-50 bg-light-card/80 dark:bg-dark-card/80 backdrop-blur-sm shadow-md">
         <nav class="container mx-auto px-6 py-4">
             <div class="flex items-center justify-between">
@@ -73,11 +70,9 @@
         </div>
     </header>
 
-    <!-- Main Content -->
     <main class="container mx-auto px-6">
         <section id="about" class="min-h-screen flex items-center py-16">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-12 items-center">
-                <!-- Left Column: Details (shows second on mobile) -->
                 <div class="md:col-span-2 order-2 md:order-1">
                     <h2 class="text-xl font-bold text-light-heading dark:text-dark-heading">Brief Intro</h2>
                     <p class="mb-6 text-lg leading-relaxed">
@@ -99,14 +94,13 @@
                         <li>M.Tech in Artificial Intelligence, IISc Bangalore (2024-2026)</li>
                         <li>B.Tech, NIT Manipur (2019-2023)</li>
                     </ul>
-                    <h2 class="section-heading">Work Experiences</h2>
+                    <h2 class="stext-xl font-bold text-light-heading dark:text-dark-heading">Work Experiences</h2>
                     <ol class="list-decimal list-inside space-y-4">
                         <li>Senior Engineer, Samsung Display Noida (2023-2024)</li>
                         <li>Power Grid Corporation of India Limited (Imphal, 2022)</li>
                         <li>NHPC Limited, Leimatak Power Station (2021)</li>
                     </ol>
                 </div>
-                <!-- Right Column: Photo and Links (shows first on mobile) -->
                 <div class="text-center order-1 md:order-2">
                     <img src="daakash.jpg" alt="Pukhrambam Akash Singh" class="rounded-full w-60 h-60 md:w-72 md:h-72 object-cover mx-auto mb-6 border-4 border-light-accent dark:border-dark-accent shadow-lg">
                     <h3 class="text-xl font-bold text-light-heading dark:text-dark-heading">Pukhrambam Akash Singh</h3>
@@ -120,13 +114,10 @@
                         <a href="https://www.linkedin.com/in/er-apu/" target="_blank" class="icon-link text-2xl" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
                         <a href="https://scholar.google.com/citations?user=CwSGDyQAAAAJ&hl=en&authuser=2&oi=ao" target="_blank" class="icon-link text-2xl" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
                     </div>
-                    <!-- Real-time Visitor Counter -->
                     <div class="mt-6">
-                        <div class="bg-light-card dark:bg-dark-card py-2 px-4 rounded-lg inline-block shadow">
-                            <p class="text-sm font-medium text-light-heading dark:text-dark-heading">
-                                Profile Views: <span id="visitor-count" class="font-bold text-light-accent dark:text-dark-accent">Loading...</span>
-                            </p>
-                        </div>
+                        <a href="https://hits.seeyoufarm.com">
+                            <img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2F<YOUR-USERNAME>.github.io%2F<YOUR-REPONAME>%2F&count_bg=%238B5CF6&title_bg=%231E1E1E&icon=&title=Profile+Views&edge_flat=false"/>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -144,55 +135,23 @@
         const themeToggle = document.getElementById('theme-toggle');
         const mobileMenuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
+        // Check for saved theme preference or default to dark
         const currentTheme = localStorage.getItem('theme');
-        if (currentTheme === 'light') { document.documentElement.classList.remove('dark'); } else { document.documentElement.classList.add('dark'); }
-        themeToggle.addEventListener('click', () => { document.documentElement.classList.toggle('dark'); const theme = document.documentElement.classList.contains('dark') ? 'dark' : 'light'; localStorage.setItem('theme', theme); });
-        mobileMenuButton.addEventListener('click', () => { mobileMenu.classList.toggle('hidden'); });
-    </script>
-    
-    <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
-        import { getAuth, signInAnonymously, signInWithCustomToken } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
-        import { getFirestore, doc, onSnapshot, runTransaction } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
-
-        const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : {};
-        const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
-        const initialAuthToken = typeof __initial_auth_token !== 'undefined' ? __initial_auth_token : null;
-        
-        try {
-            const app = initializeApp(firebaseConfig);
-            const db = getFirestore(app);
-            const auth = getAuth(app);
-
-            if (initialAuthToken) { await signInWithCustomToken(auth, initialAuthToken); } else { await signInAnonymously(auth); }
-
-            const visitorCountElement = document.getElementById('visitor-count');
-            const pageId = 'index_page_main'; // Unique ID for this counter
-            const counterDocRef = doc(db, `/artifacts/${appId}/public/data/visitor_counts/${pageId}`);
-
-            await runTransaction(db, async (transaction) => {
-                const counterDoc = await transaction.get(counterDocRef);
-                if (!counterDoc.exists()) {
-                    transaction.set(counterDocRef, { count: 1 });
-                } else {
-                    const newCount = counterDoc.data().count + 1;
-                    transaction.update(counterDocRef, { count: newCount });
-                }
-            });
-
-            onSnapshot(counterDocRef, (doc) => {
-                if (doc.exists()) {
-                    visitorCountElement.textContent = doc.data().count.toLocaleString();
-                } else {
-                    visitorCountElement.textContent = '1';
-                }
-            });
-
-        } catch (error) {
-            console.error("Firebase error:", error);
-            const visitorCountElement = document.getElementById('visitor-count');
-            if(visitorCountElement) visitorCountElement.textContent = 'N/A';
+        if (currentTheme === 'light') {
+            document.documentElement.classList.remove('dark');
+        } else {
+            document.documentElement.classList.add('dark'); // Default to dark if no preference
         }
+        // Listener for theme toggle button
+        themeToggle.addEventListener('click', () => {
+            document.documentElement.classList.toggle('dark');
+            const theme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+            localStorage.setItem('theme', theme);
+        });
+        // Listener for mobile menu
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
     </script>
 
 </body>
