@@ -8,6 +8,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <script>
         tailwind.config = {
             theme: {
@@ -29,6 +31,14 @@
         html { scroll-behavior: smooth; }
         .link-style { color: #37bcf9; text-decoration: none; transition: color 0.3s; }
         .link-style:hover { color: #bb86fc; text-decoration: underline; }
+        .icon-link {
+            color: #e0e0e0;
+            transition: color 0.3s, transform 0.3s;
+        }
+        .icon-link:hover {
+            color: #bb86fc;
+            transform: scale(1.1);
+        }
     </style>
 </head>
 <body class="bg-dark-bg text-dark-text">
@@ -39,9 +49,9 @@
             <div class="flex items-center justify-between">
                 <a href="index.html" class="text-lg font-bold text-dark-heading">Pukhrambam Akash Singh</a>
                 <div class="hidden md:flex items-center space-x-6">
+                    <a href="index.html" class="link-style">Bio</a>
                     <a href="projects.html" class="link-style">Projects</a>
                     <a href="achievements.html" class="link-style">Achievements</a>
-                    <!-- CV LINK ADDED HERE -->
                     <a href="cv.html" class="link-style">CV</a>
                     <a href="https://github.com/Pukhrambam-Akash" target="_blank" class="link-style">GitHub Repo</a>
                 </div>
@@ -59,11 +69,16 @@
                     <h1 class="text-3xl md:text-4xl font-bold text-dark-heading mb-4">Pukhrambam Akash Singh</h1>
                     <p class="mb-6 text-lg">Currently pursuing my M.Tech in Artificial Intelligence at the Indian Institute of Science (IISc) Bangalore, under the guidance of <a href="https://cps.iisc.ac.in/naxly_team/pushpak-jagtap/" target="_blank" class="link-style">Pushpak Jagtap</a>. My research focuses on Autonomous Systems, Formal Methods, and Generative AI.</p>
                     <h2 class="text-2xl font-bold text-dark-heading mb-3">Research Interests</h2>
+                    <!-- Research Interests updated to be single items -->
                     <ul class="list-disc list-inside space-y-1 mb-6">
-                        <li>Autonomous System & Control Theory</li>
-                        <li>Formal Methods & Reinforcement Learning</li>
-                        <li>Generative AI & Natural Language Processing</li>
-                        <li>Representation Learning & Gas-Sensors</li>
+                        <li>Autonomous Systems</li>
+                        <li>Control Theory</li>
+                        <li>Formal Methods</li>
+                        <li>Reinforcement Learning</li>
+                        <li>Generative AI</li>
+                        <li>Natural Language Processing</li>
+                        <li>Representation Learning</li>
+                        <li>Gas-Sensors</li>
                     </ul>
                     <h2 class="text-2xl font-bold text-dark-heading mb-3">Education</h2>
                     <ul class="list-disc list-inside space-y-1">
@@ -74,11 +89,16 @@
                 <div class="text-center">
                     <img src="daakash.jpg" alt="Pukhrambam Akash Singh" class="rounded-full w-60 h-60 md:w-72 md:h-72 object-cover mx-auto mb-6 border-4 border-dark-accent shadow-lg">
                     <h3 class="text-2xl font-bold text-dark-heading">Pukhrambam Akash Singh</h3>
-                    <div class="mt-4 space-x-4">
-                        <a href="https://www.linkedin.com/in/er-apu/" target="_blank" class="link-style text-lg">LinkedIn</a>
-                        <a href="https://scholar.google.com/citations?user=CwSGDyQAAAAJ&hl=en&authuser=2&oi=ao" target="_blank" class="link-style text-lg">Google Scholar</a>
+                    <div class="mt-6 flex justify-center items-center space-x-8">
+                        <a href="index.html" class="icon-link text-2xl" aria-label="Bio"><i class="fas fa-user-circle"></i></a>
+                        <a href="https://www.linkedin.com/in/er-apu/" target="_blank" class="icon-link text-2xl" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://scholar.google.com/citations?user=CwSGDyQAAAAJ&hl=en&authuser=2&oi=ao" target="_blank" class="icon-link text-2xl" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
                     </div>
-                     <p class="mt-4 text-sm"><a href="elearning.apu@gmail.com" class="link-style">elearning.apu@gmail.com</a></p>
+                     <p class="mt-6 text-sm"><a href="mailto:elearning.apu@gmail.com" class="link-style">elearning.apu@gmail.com</a></p>
+                     <!-- Visitor Counter Added Here -->
+                     <div class="mt-6">
+                        <img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fpukhrambamakashiisc.github.io&count_bg=%231E1E1E&title_bg=%23121212&icon=&icon_color=%23E7E7E7&title=visitors&edge_flat=false" alt="Visitor Counter"/>
+                     </div>
                 </div>
             </div>
         </section>
