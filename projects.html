@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,8 +9,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <script>
         tailwind.config = {
+            darkMode: 'class', // Enable class-based dark mode
             theme: {
                 extend: {
                     colors: {
@@ -19,111 +22,183 @@
                         'dark-heading': '#ffffff',
                         'dark-accent': '#bb86fc',
                         'dark-link': '#37bcf9',
+                        'light-bg': '#f3f4f6',
+                        'light-card': '#ffffff',
+                        'light-text': '#374151',
+                        'light-heading': '#111827',
+                        'light-accent': '#8b5cf6',
+                        'light-link': '#2563eb',
                     }
                 }
             }
         }
     </script>
     <style>
-        body { font-family: 'Inter', sans-serif; }
-        .link-style { color: #37bcf9; text-decoration: none; transition: color 0.3s; }
-        .link-style:hover { color: #bb86fc; text-decoration: underline; }
-        .project-item { background-color: #1e1e1e; padding: 1.5rem; border-radius: 0.5rem 0.5rem 0 0; border-left: 4px solid #bb86fc; }
-        .project-title { color: #ffffff; font-weight: 700; font-size: 1.25rem; }
-        .project-date { color: #bb86fc; font-size: 0.9rem; font-weight: 500; }
-        .slide-container { background-color: #1e1e1e; padding: 1rem; border-radius: 0 0 0.5rem 0.5rem; margin-top: -1px; }
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Styling for the embedded slide container to maintain consistency */
+        .slide-container {
+            background-color: var(--color-light-card);
+            padding: 1rem;
+            border-radius: 0 0 0.5rem 0.5rem;
+            margin-top: -1px;
+            border-left: 4px solid var(--color-light-accent);
+             border-right: 1px solid #e5e7eb; /* Light mode border */
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .dark .slide-container {
+            background-color: var(--color-dark-card);
+            border-left: 4px solid var(--color-dark-accent);
+            border-right: 1px solid #374151; /* Dark mode border */
+            border-bottom: 1px solid #374151;
+        }
     </style>
 </head>
-<body class="bg-dark-bg text-dark-text">
 
-    <!-- Header & Navigation --> 
+<body class="bg-light-bg text-light-text dark:bg-dark-bg dark:text-dark-text transition-colors duration-300">
+
     <header class="sticky top-0 z-50 bg-light-card/80 dark:bg-dark-card/80 backdrop-blur-sm shadow-md">
-    <nav class="container mx-auto px-6 py-4">
-        <div class="flex items-center justify-between">
-            <a href="index.html" class="text-lg font-bold text-light-heading dark:text-dark-heading">Pukhrambam Akash Singh</a>
-            
-            <div class="flex items-center space-x-4">
-                <div class="hidden md:flex items-center space-x-6">
-                    <a href="index.html" class="text-light-link dark:text-dark-link hover:text-light-accent dark:hover:text-dark-accent">Bio</a>
-                    <a href="projects.html" class="text-light-link dark:text-dark-link hover:text-light-accent dark:hover:text-dark-accent">Projects</a>
-                    <a href="achievements.html" class="text-light-link dark:text-dark-link hover:text-light-accent dark:hover:text-dark-accent">Achievements</a>
-                    <a href="cv.html" class="text-light-link dark:text-dark-link hover:text-light-accent dark:hover:text-dark-accent">CV</a>
-                    <a href="misc.html" class="text-light-link dark:text-dark-link hover:text-light-accent dark:hover:text-dark-accent">Misc</a>
-                </div>
-                
-                <button id="theme-toggle" class="text-light-heading dark:text-dark-heading text-xl"><i class="fas fa-sun hidden dark:inline"></i><i class="fas fa-moon inline dark:hidden"></i></button>
-                <button id="mobile-menu-button" class="md:hidden text-light-heading dark:text-dark-heading text-xl"><i class="fas fa-bars"></i></button>
-            </div>
-        </div>
-    </nav>
-    <div id="mobile-menu" class="hidden md:hidden bg-light-card dark:bg-dark-card">
-        <a href="index.html" class="block py-2 px-6 text-light-link dark:text-dark-link">Bio</a>
-        <a href="projects.html" class="block py-2 px-6 text-light-link dark:text-dark-link">Projects</a>
-        <a href="achievements.html" class="block py-2 px-6 text-light-link dark:text-dark-link">Achievements</a>
-        <a href="cv.html" class="block py-2 px-6 text-light-link dark:text-dark-link">CV</a>
-        <a href="misc.html" class="block py-2 px-6 text-light-link dark:text-dark-link">Misc</a>
-    </div>
-</header>
+        <nav class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <a href="index.html" class="text-lg font-bold text-light-heading dark:text-dark-heading">Pukhrambam Akash Singh</a>
 
-    <!-- Main Content -->
+                <div class="flex items-center space-x-4">
+                    <div class="hidden md:flex items-center space-x-6">
+                        <a href="index.html" class="text-light-link dark:text-dark-link hover:text-light-accent dark:hover:text-dark-accent">Bio</a>
+                        <a href="projects.html" class="text-light-link dark:text-dark-link hover:text-light-accent dark:hover:text-dark-accent">Projects</a>
+                        <a href="achievements.html" class="text-light-link dark:text-dark-link hover:text-light-accent dark:hover:text-dark-accent">Achievements</a>
+                        <a href="cv.html" class="text-light-link dark:text-dark-link hover:text-light-accent dark:hover:text-dark-accent">CV</a>
+                        <a href="misc.html" class="text-light-link dark:text-dark-link hover:text-light-accent dark:hover:text-dark-accent">Misc</a>
+                    </div>
+
+                    <button id="theme-toggle" class="text-light-heading dark:text-dark-heading text-xl"><i class="fas fa-sun hidden dark:inline"></i><i class="fas fa-moon inline dark:hidden"></i></button>
+                    <button id="mobile-menu-button" class="md:hidden text-light-heading dark:text-dark-heading text-xl"><i class="fas fa-bars"></i></button>
+                </div>
+            </div>
+        </nav>
+        <div id="mobile-menu" class="hidden md:hidden bg-light-card dark:bg-dark-card">
+            <a href="index.html" class="block py-2 px-6 text-light-link dark:text-dark-link">Bio</a>
+            <a href="projects.html" class="block py-2 px-6 text-light-link dark:text-dark-link">Projects</a>
+            <a href="achievements.html" class="block py-2 px-6 text-light-link dark:text-dark-link">Achievements</a>
+            <a href="cv.html" class="block py-2 px-6 text-light-link dark:text-dark-link">CV</a>
+            <a href="misc.html" class="block py-2 px-6 text-light-link dark:text-dark-link">Misc</a>
+        </div>
+    </header>
+
     <main class="container mx-auto px-6 py-12">
         <section id="projects" class="py-10">
-            <h1 class="text-4xl font-bold text-center mb-12 text-dark-heading">Projects</h1>
+            <h1 class="text-4xl font-bold text-center mb-12 text-light-heading dark:text-dark-heading">Projects</h1>
             <div class="max-w-4xl mx-auto space-y-8">
+                <!-- Project 1 -->
                 <div>
-                    <div class="project-item">
-                        <div class="flex justify-between items-start mb-2">
-                            <div><h3 class="project-title">1. nCBF: Self supervised Neural Control Barrier Function for STL Task</h3><p class="text-dark-text mt-2">Developing a State-of-the-Art nCBF for formally guaranteed Autonomous Systems.</p></div>
-                            <span class="project-date">Ongoing</span>
+                    <div class="bg-light-card dark:bg-dark-card p-6 rounded-t-lg border-l-4 border-light-accent dark:border-dark-accent shadow-md">
+                        <div class="flex flex-col md:flex-row justify-between items-start mb-2">
+                            <div>
+                                <h3 class="text-xl font-bold text-light-heading dark:text-dark-heading">1. nCBF: Self supervised Neural Control Barrier Function for STL Task</h3>
+                                <p class="text-light-text dark:text-dark-text mt-2">Developing a State-of-the-Art nCBF for formally guaranteed Autonomous Systems.</p>
+                            </div>
+                            <span class="bg-light-accent/20 text-light-accent dark:bg-dark-accent/20 dark:text-dark-accent text-sm font-semibold px-3 py-1 rounded-full mt-3 md:mt-0 whitespace-nowrap">Ongoing</span>
                         </div>
-                        <div class="mt-4 flex justify-end space-x-4"><a href="#" class="link-style font-semibold">Paper</a><a href="#" class="link-style font-semibold">Code</a></div>
+                        <div class="mt-4 flex justify-start md:justify-end space-x-4">
+                            <a href="#" class="font-semibold text-light-link dark:text-dark-link hover:underline">Paper</a>
+                            <a href="#" class="font-semibold text-light-link dark:text-dark-link hover:underline">Code</a>
+                        </div>
                     </div>
                 </div>
+                <!-- Project 2 -->
                 <div>
-                    <div class="project-item">
-                        <div class="flex justify-between items-start mb-2">
-                            <div><h3 class="project-title">2. DeepSkip: Sponsored Segmentation in Youtube Videos</h3><p class="text-dark-text mt-2">Developing an edge device-deployable solution to counter Google's server-side ad injection.</p><p class="text-sm text-gray-400 mt-2"><span class="font-semibold">Tools:</span> Multimodal Parallelizable Transformer</p></div>
-                            <span class="project-date">Ongoing</span>
+                    <div class="bg-light-card dark:bg-dark-card p-6 rounded-t-lg border-l-4 border-light-accent dark:border-dark-accent shadow-md">
+                        <div class="flex flex-col md:flex-row justify-between items-start mb-2">
+                            <div>
+                                <h3 class="text-xl font-bold text-light-heading dark:text-dark-heading">2. DeepSkip: Sponsored Segmentation in Youtube Videos</h3>
+                                <p class="text-light-text dark:text-dark-text mt-2">Developing an edge device-deployable solution to counter Google's server-side ad injection.</p>
+                                <p class="text-sm text-gray-500 dark:text-gray-400 mt-2"><span class="font-semibold">Tools:</span> Multimodal Parallelizable Transformer</p>
+                            </div>
+                            <span class="bg-light-accent/20 text-light-accent dark:bg-dark-accent/20 dark:text-dark-accent text-sm font-semibold px-3 py-1 rounded-full mt-3 md:mt-0 whitespace-nowrap">Ongoing</span>
                         </div>
-                        <div class="mt-4 flex justify-end space-x-4"><a href="#" class="link-style font-semibold">Paper</a><a href="#" class="link-style font-semibold">Code</a></div>
+                        <div class="mt-4 flex justify-start md:justify-end space-x-4">
+                            <a href="#" class="font-semibold text-light-link dark:text-dark-link hover:underline">Paper</a>
+                            <a href="#" class="font-semibold text-light-link dark:text-dark-link hover:underline">Code</a>
+                        </div>
                     </div>
                 </div>
+                <!-- Project 3 -->
                 <div>
-                    <div class="project-item">
-                        <div class="flex justify-between items-start mb-2">
-                            <div><h3 class="project-title">3. Twitter Sentiment analysis on Sentiment140 Dataset</h3><p class="text-dark-text mt-2">Leveraged NLP techniques and Machine Learning Algorithms for classifying sentiments in large textual datasets.</p><p class="text-sm text-gray-400 mt-2"><span class="font-semibold">Tools:</span> PCA, SVM, Stochastic Gradient Descent, Logistic Regression, TF-IDF</p></div>
-                            <span class="project-date">2023</span>
+                    <div class="bg-light-card dark:bg-dark-card p-6 rounded-t-lg border-l-4 border-light-accent dark:border-dark-accent shadow-md">
+                        <div class="flex flex-col md:flex-row justify-between items-start mb-2">
+                            <div>
+                                <h3 class="text-xl font-bold text-light-heading dark:text-dark-heading">3. Twitter Sentiment analysis on Sentiment140 Dataset</h3>
+                                <p class="text-light-text dark:text-dark-text mt-2">Leveraged NLP techniques and Machine Learning Algorithms for classifying sentiments in large textual datasets.</p>
+                                <p class="text-sm text-gray-500 dark:text-gray-400 mt-2"><span class="font-semibold">Tools:</span> PCA, SVM, Stochastic Gradient Descent, Logistic Regression, TF-IDF</p>
+                            </div>
+                            <span class="bg-light-accent/20 text-light-accent dark:bg-dark-accent/20 dark:text-dark-accent text-sm font-semibold px-3 py-1 rounded-full mt-3 md:mt-0 whitespace-nowrap">2023</span>
                         </div>
-                         <div class="mt-4 flex justify-end space-x-4"><a href="#" class="link-style font-semibold">Paper</a><a href="#" class="link-style font-semibold">Code</a></div>
+                        <div class="mt-4 flex justify-start md:justify-end space-x-4">
+                            <a href="#" class="font-semibold text-light-link dark:text-dark-link hover:underline">Paper</a>
+                            <a href="#" class="font-semibold text-light-link dark:text-dark-link hover:underline">Code</a>
+                        </div>
                     </div>
                 </div>
+                <!-- Project 4 -->
                 <div>
-                    <div class="project-item">
-                        <div class="flex justify-between items-start mb-2">
-                            <div><h3 class="project-title">4. Self Driving Car: Nvidia Paper Implementation</h3><p class="text-dark-text mt-2">Developed a regression-based simplified model for autonomous driving.</p><p class="text-sm text-gray-400 mt-2"><span class="font-semibold">Tools:</span> CNN, L2 Regularization, Tensorflow, EDA, Python</p></div>
-                            <span class="project-date">2021</span>
+                    <div class="bg-light-card dark:bg-dark-card p-6 rounded-t-lg border-l-4 border-light-accent dark:border-dark-accent shadow-md">
+                        <div class="flex flex-col md:flex-row justify-between items-start mb-2">
+                            <div>
+                                <h3 class="text-xl font-bold text-light-heading dark:text-dark-heading">4. Self Driving Car: Nvidia Paper Implementation</h3>
+                                <p class="text-light-text dark:text-dark-text mt-2">Developed a regression-based simplified model for autonomous driving.</p>
+                                <p class="text-sm text-gray-500 dark:text-gray-400 mt-2"><span class="font-semibold">Tools:</span> CNN, L2 Regularization, Tensorflow, EDA, Python</p>
+                            </div>
+                            <span class="bg-light-accent/20 text-light-accent dark:bg-dark-accent/20 dark:text-dark-accent text-sm font-semibold px-3 py-1 rounded-full mt-3 md:mt-0 whitespace-nowrap">2021</span>
                         </div>
-                         <div class="mt-4 flex justify-end space-x-4"><a href="#" class="link-style font-semibold">Paper</a><a href="#" class="link-style font-semibold">Code</a></div>
+                        <div class="mt-4 flex justify-start md:justify-end space-x-4">
+                            <a href="#" class="font-semibold text-light-link dark:text-dark-link hover:underline">Paper</a>
+                            <a href="#" class="font-semibold text-light-link dark:text-dark-link hover:underline">Code</a>
+                        </div>
                     </div>
                 </div>
+                <!-- Project 5 -->
                 <div>
-                    <div class="project-item">
-                        <div class="flex justify-between items-start mb-2">
-                            <div><h3 class="project-title">5. Real-Time Object Detection on Edge Devices</h3><p class="text-dark-text mt-2">Optimized and deployed a YOLOv8 model on a Jetson Nano for real-time object detection in a video stream.</p><p class="text-sm text-gray-400 mt-2"><span class="font-semibold">Tools:</span> PyTorch, TensorRT, ONNX, Jetson Nano</p></div>
-                            <span class="project-date">In Progress</span>
+                    <div class="bg-light-card dark:bg-dark-card p-6 rounded-t-lg border-l-4 border-light-accent dark:border-dark-accent shadow-md">
+                        <div class="flex flex-col md:flex-row justify-between items-start mb-2">
+                            <div>
+                                <h3 class="text-xl font-bold text-light-heading dark:text-dark-heading">5. Real-Time Object Detection on Edge Devices</h3>
+                                <p class="text-light-text dark:text-dark-text mt-2">Optimized and deployed a YOLOv8 model on a Jetson Nano for real-time object detection in a video stream.</p>
+                                <p class="text-sm text-gray-500 dark:text-gray-400 mt-2"><span class="font-semibold">Tools:</span> PyTorch, TensorRT, ONNX, Jetson Nano</p>
+                            </div>
+                            <span class="bg-light-accent/20 text-light-accent dark:bg-dark-accent/20 dark:text-dark-accent text-sm font-semibold px-3 py-1 rounded-full mt-3 md:mt-0 whitespace-nowrap">In Progress</span>
                         </div>
-                         <div class="mt-4 flex justify-end space-x-4"><a href="#" class="link-style font-semibold">Paper</a><a href="#" class="link-style font-semibold">Code</a></div>
+                        <div class="mt-4 flex justify-start md:justify-end space-x-4">
+                            <a href="#" class="font-semibold text-light-link dark:text-dark-link hover:underline">Paper</a>
+                            <a href="#" class="font-semibold text-light-link dark:text-dark-link hover:underline">Code</a>
+                        </div>
                     </div>
                     <div class="slide-container">
                         <div class="aspect-video"><iframe src="https://docs.google.com/presentation/d/1NMjDi7wTsuxz1uvW8rqskl45nEgvH4cs8ZzgaQCsFUQ/embed?start=false&loop=false&delayms=3000" frameborder="0" allowfullscreen="true" class="w-full h-full rounded-md"></iframe></div>
                     </div>
                 </div>
+                <!-- Project 6 -->
                 <div>
-                    <div class="project-item">
-                        <div class="flex justify-between items-start mb-2">
-                            <div><h3 class="project-title">6. Scratch Implementations</h3><ul class="list-disc list-inside text-dark-text mt-2 space-y-1"><li>Back Propagation in Deep Neural Network (DNN) with one hidden Layer.</li><li>PCA and LDA for emotion classification.</li></ul></div>
+                    <div class="bg-light-card dark:bg-dark-card p-6 rounded-t-lg border-l-4 border-light-accent dark:border-dark-accent shadow-md">
+                        <div class="flex flex-col md:flex-row justify-between items-start mb-2">
+                            <div>
+                                <h3 class="text-xl font-bold text-light-heading dark:text-dark-heading">6. Scratch Implementations</h3>
+                                <ul class="list-disc list-inside text-light-text dark:text-dark-text mt-2 space-y-1">
+                                    <li>Back Propagation in Deep Neural Network (DNN) with one hidden Layer.</li>
+                                    <li>PCA and LDA for emotion classification.</li>
+                                </ul>
+                            </div>
                         </div>
-                         <div class="mt-4 flex justify-end space-x-4"><a href="#" class="link-style font-semibold">Paper</a><a href="#" class="link-style font-semibold">Code</a></div>
+                        <div class="mt-4 flex justify-start md:justify-end space-x-4">
+                            <a href="#" class="font-semibold text-light-link dark:text-dark-link hover:underline">Paper</a>
+                            <a href="#" class="font-semibold text-light-link dark:text-dark-link hover:underline">Code</a>
+                        </div>
                     </div>
                     <div class="slide-container">
                         <div class="aspect-video"><iframe src="https://docs.google.com/presentation/d/e/YOUR_EMBED_ID_HERE_6/embed?start=false&loop=false&delayms=3000" frameborder="0" allowfullscreen="true" class="w-full h-full rounded-md"></iframe></div>
@@ -133,43 +208,60 @@
         </section>
     </main>
 
-    <!-- Footer Section -->
-    <footer class="bg-dark-card mt-16 border-t border-gray-700">
-        <div class="container mx-auto px-6 py-8 text-center text-gray-400">
-            <p class="text-lg italic font-bold text-dark-heading">"Failure is certain. Triumph is a chance. Your effort is the bridge."</p>
-            <p class="mt-6 text-sm">&copy; 2025 Pukhrambam Akash Singh. All Rights Reserved.</p>
+    <footer class="bg-light-card dark:bg-dark-card mt-16 border-t border-gray-200 dark:border-gray-700">
+        <div class="container mx-auto px-6 py-8 text-center text-gray-500 dark:text-gray-400">
+            <p class="text-lg italic font-bold text-light-heading dark:text-dark-heading">"Failure is certain. Triumph is a chance. Your effort is the bridge."</p>
+            <p class="mt-4 text-sm" id="last-updated"></p>
+            <p class="mt-2 text-sm">&copy; 2025 Pukhrambam Akash Singh. All Rights Reserved.</p>
         </div>
     </footer>
 
     <script>
-const themeToggle = document.getElementById('theme-toggle');
-const mobileMenuButton = document.getElementById('mobile-menu-button');
-const mobileMenu = document.getElementById('mobile-menu');
+        const themeToggle = document.getElementById('theme-toggle');
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
 
-// Check for a saved theme in localStorage and apply it
-const savedTheme = localStorage.getItem('theme');
-if (savedTheme === 'light') {
-document.documentElement.classList.remove('dark');
-} else {
-// Default to dark mode if no theme is saved or if it's 'dark'
-document.documentElement.classList.add('dark');
-}
+        // Check for a saved theme in localStorage and apply it
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'light') {
+            document.documentElement.classList.remove('dark');
+        } else {
+            // Default to dark mode if no theme is saved or if it's 'dark'
+            document.documentElement.classList.add('dark');
+        }
 
-// Add a listener to the theme toggle button
-themeToggle.addEventListener('click', () => {
-// Toggle the .dark class on the main <html> element
-document.documentElement.classList.toggle('dark');
+        // Add a listener to the theme toggle button
+        themeToggle.addEventListener('click', () => {
+            // Toggle the .dark class on the main <html> element
+            document.documentElement.classList.toggle('dark');
 
-// Check what the new theme is and save it in localStorage
-const currentTheme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
-localStorage.setItem('theme', currentTheme);
-});
+            // Check what the new theme is and save it in localStorage
+            const currentTheme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+            localStorage.setItem('theme', currentTheme);
+        });
 
-// Add a listener to the mobile menu button
-mobileMenuButton.addEventListener('click', () => {
-mobileMenu.classList.toggle('hidden');
-});
-</script>
+        // Add a listener to the mobile menu button
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+
+    <script>
+        // This script automatically displays the last modified date of the document.
+        const lastUpdatedElement = document.getElementById('last-updated');
+        if (lastUpdatedElement) {
+            const lastModified = new Date(document.lastModified);
+            const options = {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            };
+            // Using 'en-IN' for an appropriate Indian English date format.
+            const formattedDate = lastModified.toLocaleDateString('en-IN', options);
+            lastUpdatedElement.innerHTML = `Last Updated on ${formattedDate}`;
+        }
+    </script>
 
 </body>
+
 </html>
