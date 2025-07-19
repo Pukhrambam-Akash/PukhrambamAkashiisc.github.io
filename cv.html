@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,8 +9,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <script>
         tailwind.config = {
+            darkMode: 'class', // Enable class-based dark mode
             theme: {
                 extend: {
                     colors: {
@@ -19,101 +22,138 @@
                         'dark-heading': '#ffffff',
                         'dark-accent': '#bb86fc',
                         'dark-link': '#37bcf9',
+                        'light-bg': '#f3f4f6',
+                        'light-card': '#ffffff',
+                        'light-text': '#374151',
+                        'light-heading': '#111827',
+                        'light-accent': '#8b5cf6',
+                        'light-link': '#2563eb',
                     }
                 }
             }
         }
     </script>
     <style>
-        body { font-family: 'Inter', sans-serif; }
-        .link-style { color: #37bcf9; text-decoration: none; transition: color 0.3s; }
-        .link-style:hover { color: #bb86fc; }
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
     </style>
 </head>
-<body class="bg-dark-bg text-dark-text">
 
-    <!-- Header & Navigation -->  
+<body class="bg-light-bg text-light-text dark:bg-dark-bg dark:text-dark-text transition-colors duration-300">
+
     <header class="sticky top-0 z-50 bg-light-card/80 dark:bg-dark-card/80 backdrop-blur-sm shadow-md">
-    <nav class="container mx-auto px-6 py-4">
-        <div class="flex items-center justify-between">
-            <a href="index.html" class="text-lg font-bold text-light-heading dark:text-dark-heading">Pukhrambam Akash Singh</a>
-            
-            <div class="flex items-center space-x-4">
-                <div class="hidden md:flex items-center space-x-6">
-                    <a href="index.html" class="text-light-link dark:text-dark-link hover:text-light-accent dark:hover:text-dark-accent">Bio</a>
-                    <a href="projects.html" class="text-light-link dark:text-dark-link hover:text-light-accent dark:hover:text-dark-accent">Projects</a>
-                    <a href="achievements.html" class="text-light-link dark:text-dark-link hover:text-light-accent dark:hover:text-dark-accent">Achievements</a>
-                    <a href="cv.html" class="text-light-link dark:text-dark-link hover:text-light-accent dark:hover:text-dark-accent">CV</a>
-                    <a href="misc.html" class="text-light-link dark:text-dark-link hover:text-light-accent dark:hover:text-dark-accent">Misc</a>
-                </div>
-                
-                <button id="theme-toggle" class="text-light-heading dark:text-dark-heading text-xl"><i class="fas fa-sun hidden dark:inline"></i><i class="fas fa-moon inline dark:hidden"></i></button>
-                <button id="mobile-menu-button" class="md:hidden text-light-heading dark:text-dark-heading text-xl"><i class="fas fa-bars"></i></button>
-            </div>
-        </div>
-    </nav>
-    <div id="mobile-menu" class="hidden md:hidden bg-light-card dark:bg-dark-card">
-        <a href="index.html" class="block py-2 px-6 text-light-link dark:text-dark-link">Bio</a>
-        <a href="projects.html" class="block py-2 px-6 text-light-link dark:text-dark-link">Projects</a>
-        <a href="achievements.html" class="block py-2 px-6 text-light-link dark:text-dark-link">Achievements</a>
-        <a href="cv.html" class="block py-2 px-6 text-light-link dark:text-dark-link">CV</a>
-        <a href="misc.html" class="block py-2 px-6 text-light-link dark:text-dark-link">Misc</a>
-    </div>
-</header>
-                    
-              
+        <nav class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <a href="index.html" class="text-lg font-bold text-light-heading dark:text-dark-heading">Pukhrambam Akash
+                    Singh</a>
 
-    <!-- Main Content -->
+                <div class="flex items-center space-x-4">
+                    <div class="hidden md:flex items-center space-x-6">
+                        <a href="index.html"
+                            class="text-light-link dark:text-dark-link hover:text-light-accent dark:hover:text-dark-accent">Bio</a>
+                        <a href="projects.html"
+                            class="text-light-link dark:text-dark-link hover:text-light-accent dark:hover:text-dark-accent">Projects</a>
+                        <a href="achievements.html"
+                            class="text-light-link dark:text-dark-link hover:text-light-accent dark:hover:text-dark-accent">Achievements</a>
+                        <a href="cv.html"
+                            class="text-light-link dark:text-dark-link hover:text-light-accent dark:hover:text-dark-accent">CV</a>
+                        <a href="misc.html"
+                            class="text-light-link dark:text-dark-link hover:text-light-accent dark:hover:text-dark-accent">Misc</a>
+                    </div>
+
+                    <button id="theme-toggle" class="text-light-heading dark:text-dark-heading text-xl"><i
+                            class="fas fa-sun hidden dark:inline"></i><i
+                            class="fas fa-moon inline dark:hidden"></i></button>
+                    <button id="mobile-menu-button"
+                        class="md:hidden text-light-heading dark:text-dark-heading text-xl"><i
+                            class="fas fa-bars"></i></button>
+                </div>
+            </div>
+        </nav>
+        <div id="mobile-menu" class="hidden md:hidden bg-light-card dark:bg-dark-card">
+            <a href="index.html" class="block py-2 px-6 text-light-link dark:text-dark-link">Bio</a>
+            <a href="projects.html" class="block py-2 px-6 text-light-link dark:text-dark-link">Projects</a>
+            <a href="achievements.html" class="block py-2 px-6 text-light-link dark:text-dark-link">Achievements</a>
+            <a href="cv.html" class="block py-2 px-6 text-light-link dark:text-dark-link">CV</a>
+            <a href="misc.html" class="block py-2 px-6 text-light-link dark:text-dark-link">Misc</a>
+        </div>
+    </header>
+
     <main class="container mx-auto px-6 py-12">
-        <h1 class="text-4xl font-bold text-center mb-8 text-dark-heading">Curriculum Vitae</h1>
-        
+        <h1 class="text-4xl font-bold text-center mb-8 text-light-heading dark:text-dark-heading">Curriculum Vitae</h1>
+
         <!-- Embedded PDF Viewer -->
         <div class="w-full max-w-4xl mx-auto" style="height: 85vh;">
-            <p class="text-center text-gray-400 mb-4">
-                If the PDF does not load, you can 
-                <a href="Resume_ML_Engineer.pdf" target="_blank" class="link-style underline">download it directly</a>.
+            <p class="text-center text-light-text dark:text-dark-text mb-4">
+                If the PDF does not load, you can
+                <a href="Resume_ML_Engineer.pdf" target="_blank"
+                    class="text-light-link dark:text-dark-link underline hover:text-light-accent dark:hover:text-dark-accent">download
+                    it directly</a>.
             </p>
-            <iframe src="Resume_ML_Engineer.pdf" class="w-full h-full border-2 border-dark-card rounded-lg shadow-lg"></iframe>
+            <iframe src="Resume_ML_Engineer.pdf"
+                class="w-full h-full border-2 border-light-card dark:border-dark-card rounded-lg shadow-lg"></iframe>
         </div>
     </main>
 
-    <!-- Footer Section -->
-    <footer class="bg-dark-card mt-16 border-t border-gray-700">
-        <div class="container mx-auto px-6 py-8 text-center text-gray-400">
-            <p class="text-lg italic font-bold text-dark-heading">"Failure is certain. Triumph is a chance. Your effort is the bridge."</p>
-            <p class="mt-6 text-sm">&copy; 2025 Pukhrambam Akash Singh. All Rights Reserved.</p>
+    <footer class="bg-light-card dark:bg-dark-card mt-16 border-t border-gray-200 dark:border-gray-700">
+        <div class="container mx-auto px-6 py-8 text-center text-gray-500 dark:text-gray-400">
+            <p class="text-lg italic font-bold text-light-heading dark:text-dark-heading">"Failure is certain. Triumph
+                is a chance. Your effort is the bridge."</p>
+            <p class="mt-4 text-sm" id="last-updated"></p>
+            <p class="mt-2 text-sm">&copy; 2025 Pukhrambam Akash Singh. All Rights Reserved.</p>
         </div>
     </footer>
 
     <script>
-const themeToggle = document.getElementById('theme-toggle');
-const mobileMenuButton = document.getElementById('mobile-menu-button');
-const mobileMenu = document.getElementById('mobile-menu');
+        const themeToggle = document.getElementById('theme-toggle');
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
 
-// Check for a saved theme in localStorage and apply it
-const savedTheme = localStorage.getItem('theme');
-if (savedTheme === 'light') {
-document.documentElement.classList.remove('dark');
-} else {
-// Default to dark mode if no theme is saved or if it's 'dark'
-document.documentElement.classList.add('dark');
-}
+        // Check for a saved theme in localStorage and apply it
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'light') {
+            document.documentElement.classList.remove('dark');
+        } else {
+            // Default to dark mode if no theme is saved or if it's 'dark'
+            document.documentElement.classList.add('dark');
+        }
 
-// Add a listener to the theme toggle button
-themeToggle.addEventListener('click', () => {
-// Toggle the .dark class on the main <html> element
-document.documentElement.classList.toggle('dark');
+        // Add a listener to the theme toggle button
+        themeToggle.addEventListener('click', () => {
+            // Toggle the .dark class on the main <html> element
+            document.documentElement.classList.toggle('dark');
 
-// Check what the new theme is and save it in localStorage
-const currentTheme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
-localStorage.setItem('theme', currentTheme);
-});
+            // Check what the new theme is and save it in localStorage
+            const currentTheme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+            localStorage.setItem('theme', currentTheme);
+        });
 
-// Add a listener to the mobile menu button
-mobileMenuButton.addEventListener('click', () => {
-mobileMenu.classList.toggle('hidden');
-});
-</script>
+        // Add a listener to the mobile menu button
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+    <script>
+        // This script automatically displays the last modified date of the document.
+        const lastUpdatedElement = document.getElementById('last-updated');
+        if (lastUpdatedElement) {
+            const lastModified = new Date(document.lastModified);
+            const options = {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            };
+            // Using 'en-IN' for an appropriate Indian English date format.
+            const formattedDate = lastModified.toLocaleDateString('en-IN', options);
+            lastUpdatedElement.innerHTML = `Last Updated on ${formattedDate}`;
+        }
+    </script>
 
 </body>
+
 </html>
